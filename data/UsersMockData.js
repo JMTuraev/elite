@@ -1,6 +1,5 @@
-// data/UsersMockData.js
-
 const UsersMockData = [
+    
     {
       id: 1,
       name: 'Laylo',
@@ -8,18 +7,52 @@ const UsersMockData = [
       location: 'Toshkent',
       isPremium: true,
       photos: [
-        'https://randomuser.me/api/portraits/women/21.jpg',
-        'https://randomuser.me/api/portraits/women/31.jpg',
+        'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+        'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+      ],
+      details: {
+        gender: 'Female',
+        height: "168cm (5'6\")",
+        languages: ['Uzbek', 'Russian'],
+        zodiac: 'Leo',
+        smoking: 'No',
+        drinking: 'Occasionally',
+        kids: 'No',
+        occupation: 'UI/UX Designer',
+      },
+      tags: ['Music', 'Reading', 'Travel', 'Art'],
+      moments: [
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+        'https://images.unsplash.com/photo-1504257432389-52343af06ae3',
+        'https://images.unsplash.com/photo-1519340333755-c39e1cc57f2e',
       ],
     },
+  
     {
       id: 2,
       name: 'Gulbahor',
       age: 27,
       location: 'Andijon',
       isPremium: false,
-      photos: ['https://randomuser.me/api/portraits/women/32.jpg'],
+      photos: [
+        'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+      ],
+      details: {
+        gender: 'Female',
+        height: "170cm (5'7\")",
+        languages: ['Uzbek'],
+        zodiac: 'Virgo',
+        smoking: 'No',
+        drinking: 'No',
+        kids: 'Yes',
+        occupation: 'Dentist',
+      },
+      tags: ['Cooking', 'Fitness', 'Cinema'],
+      moments: [
+        'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+      ],
     },
+  
     {
       id: 3,
       name: 'Malika',
@@ -27,82 +60,113 @@ const UsersMockData = [
       location: 'Buxoro',
       isPremium: true,
       photos: [
-        'https://randomuser.me/api/portraits/women/43.jpg',
-        'https://randomuser.me/api/portraits/women/44.jpg',
-        'https://randomuser.me/api/portraits/women/45.jpg',
+        'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+      ],
+      details: {
+        gender: 'Female',
+        height: "160cm (5'3\")",
+        languages: ['Uzbek', 'English'],
+        zodiac: 'Sagittarius',
+        smoking: 'No',
+        drinking: 'No',
+        kids: 'No',
+        occupation: 'Photographer',
+      },
+      tags: ['Photography', 'Nature', 'Travel'],
+      moments: [
+        'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+        'https://images.unsplash.com/photo-1517841905240-472988babdf9',
       ],
     },
+  
     {
-      id: 4,
-      name: 'Zilola',
-      age: 26,
-      location: 'Namangan',
-      isPremium: false,
-      photos: ['https://randomuser.me/api/portraits/women/54.jpg'],
-    },
-    {
-      id: 5,
-      name: 'Sevara',
-      age: 25,
-      location: 'Navoiy',
-      isPremium: true,
-      photos: [
-        'https://randomuser.me/api/portraits/women/65.jpg',
-        'https://randomuser.me/api/portraits/women/66.jpg',
-      ],
-    },
-    {
-      id: 6,
-      name: 'Dilrabo',
-      age: 22,
-      location: 'Farg‘ona',
-      isPremium: false,
-      photos: ['https://randomuser.me/api/portraits/women/76.jpg'],
-    },
-    {
-      id: 7,
-      name: 'Shahnoza',
-      age: 28,
-      location: 'Xorazm',
-      isPremium: true,
-      photos: [
-        'https://randomuser.me/api/portraits/women/87.jpg',
-        'https://randomuser.me/api/portraits/women/88.jpg',
-        'https://randomuser.me/api/portraits/women/89.jpg',
-        'https://randomuser.me/api/portraits/women/89.jpg',
-        'https://randomuser.me/api/portraits/women/89.jpg',
-        'https://randomuser.me/api/portraits/women/89.jpg',
-        'https://randomuser.me/api/portraits/women/89.jpg',
-        'https://randomuser.me/api/portraits/women/89.jpg',
-      ],
-    },
-    {
-      id: 8,
-      name: 'Xumora',
-      age: 29,
-      location: 'Qarshi',
-      isPremium: false,
-      photos: ['https://randomuser.me/api/portraits/women/18.jpg'],
-    },
-    {
-      id: 9,
-      name: 'Rayhona',
-      age: 23,
-      location: 'Jizzax',
-      isPremium: false,
-      photos: ['https://randomuser.me/api/portraits/women/9.jpg'],
-    },
-    {
-      id: 10,
-      name: 'Madina',
-      age: 26,
-      location: 'Samarqand',
-      isPremium: true,
-      photos: [
-        'https://randomuser.me/api/portraits/women/10.jpg',
-        'https://randomuser.me/api/portraits/women/11.jpg',
-      ],
-    },
+        id: 5,
+        name: 'Laylo',
+        age: 23,
+        location: 'Toshkent',
+        isPremium: true,
+        photos: [
+          'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+          'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+        ],
+        details: {
+          gender: 'Female',
+          height: "168cm (5'6\")",
+          languages: ['Uzbek', 'Russian'],
+          zodiac: 'Leo',
+          smoking: 'No',
+          drinking: 'Occasionally',
+          kids: 'No',
+          occupation: 'UI/UX Designer',
+        },
+        tags: ['Music', 'Reading', 'Travel', 'Art'],
+        moments: [
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+          'https://images.unsplash.com/photo-1504257432389-52343af06ae3',
+          'https://images.unsplash.com/photo-1519340333755-c39e1cc57f2e',
+        ],
+      },
+    
+      {
+        id: 7,
+        name: 'Gulbahor',
+        age: 27,
+        location: 'Andijon',
+        isPremium: false,
+        photos: [
+          'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+          'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+          'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+        ],
+        details: {
+          gender: 'Female',
+          height: "170cm (5'7\")",
+          languages: ['Uzbek'],
+          zodiac: 'Virgo',
+          smoking: 'No',
+          drinking: 'No',
+          kids: 'Yes',
+          occupation: 'Dentist',
+        },
+        tags: ['Cooking', 'Fitness', 'Cinema'],
+        moments: [
+          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+        ],
+      },
+    
+      {
+        id: 8,
+        name: 'Malika',
+        age: 24,
+        location: 'Buxoro',
+        isPremium: true,
+        photos: [
+          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+        ],
+        details: {
+          gender: 'Female',
+          height: "160cm (5'3\")",
+          languages: ['Uzbek', 'English'],
+          zodiac: 'Sagittarius',
+          smoking: 'No',
+          drinking: 'No',
+          kids: 'No',
+          occupation: 'Photographer',
+        },
+        tags: ['Photography', 'Nature', 'Travel'],
+        moments: [
+          'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+          'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+        ],
+      },
+  
+      
+    // ✂️ Siz xohlasangiz boshqa foydalanuvchilarni ham shunaqa davom ettiraman
   ];
   
   export default UsersMockData;

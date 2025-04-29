@@ -1,5 +1,15 @@
+// src/components/UserCard.js
+
 import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, FlatList, ImageBackground, Dimensions } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  ImageBackground,
+  Dimensions,
+  Animated,
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 
@@ -10,46 +20,44 @@ const MAX_DOTS = 5; // Maksimal dots soni
 
 const UserCard = ({ name, age, location, photos, isPremium }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const scrollRef = useRef();
+  const scrollX = useRef(new Animated.Value(0)).current;
 
-  const handleScroll = (event) => {
-    const slide = Math.round(event.nativeEvent.contentOffset.x / CARD_WIDTH);
-    setActiveIndex(slide);
+  const handleMomentumScrollEnd = (event) => {
+    const index = Math.round(event.nativeEvent.contentOffset.x / CARD_WIDTH);
+    setActiveIndex(index);
   };
 
   const totalPhotos = photos.length;
   const visibleDots = Math.min(totalPhotos, MAX_DOTS);
 
-  const calculateActiveDot = () => {
-    if (totalPhotos <= MAX_DOTS) {
-      return activeIndex;
-    } else {
-      const middle = Math.floor(MAX_DOTS / 2);
-      if (activeIndex <= middle) return activeIndex;
-      if (activeIndex >= totalPhotos - middle) return MAX_DOTS - (totalPhotos - activeIndex);
-      return middle;
-    }
-  };
-
   return (
     <View style={styles.card}>
       {/* Swipeable Photos */}
-      <FlatList
+      <Animated.FlatList
         data={photos}
         horizontal
-        pagingEnabled
-        ref={scrollRef}
-        onScroll={handleScroll}
         showsHorizontalScrollIndicator={false}
+        snapToInterval={CARD_WIDTH}
+        decelerationRate="fast"
+        bounces={false}
+        pagingEnabled={false}
+        contentContainerStyle={{ width: CARD_WIDTH * photos.length }}
         keyExtractor={(item, index) => index.toString()}
+        onMomentumScrollEnd={handleMomentumScrollEnd}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          { useNativeDriver: false }
+        )}
         renderItem={({ item }) => (
-          <ImageBackground
-            source={{ uri: item }}
-            style={styles.image}
-            imageStyle={styles.imageStyle}
-          >
-            <View style={styles.overlay} />
-          </ImageBackground>
+          <View style={styles.imageWrapper}>
+            <ImageBackground
+              source={{ uri: item }}
+              style={styles.image}
+              imageStyle={styles.imageStyle}
+            >
+              <View style={styles.overlay} />
+            </ImageBackground>
+          </View>
         )}
       />
 
@@ -79,7 +87,7 @@ const UserCard = ({ name, age, location, photos, isPremium }) => {
           </View>
         )}
 
-        {/* Bottom center: Dots - only if multiple photos */}
+        {/* Bottom center: Dots */}
         {photos.length > 1 && (
           <View style={styles.dotsWrapper}>
             <View style={styles.dotsContainer}>
@@ -88,7 +96,7 @@ const UserCard = ({ name, age, location, photos, isPremium }) => {
                   key={index}
                   style={[
                     styles.dot,
-                    index === calculateActiveDot() ? styles.activeDot : null,
+                    index === activeIndex ? styles.activeDot : null,
                   ]}
                 />
               ))}
@@ -112,9 +120,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
     position: 'relative',
   },
-  image: {
+  imageWrapper: {
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
   imageStyle: {
     borderRadius: 12,
