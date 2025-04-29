@@ -1,173 +1,105 @@
 const UsersMockData = [
-    
-    {
-      id: 1,
-      name: 'Laylo',
-      age: 23,
-      location: 'Toshkent',
-      isPremium: true,
-      photos: [
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-        'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-      ],
-      details: {
-        gender: 'Female',
-        height: "168cm (5'6\")",
-        languages: ['Uzbek', 'Russian'],
-        zodiac: 'Leo',
-        smoking: 'No',
-        drinking: 'Occasionally',
-        kids: 'No',
-        occupation: 'UI/UX Designer',
-      },
-      tags: ['Music', 'Reading', 'Travel', 'Art'],
-      moments: [
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-        'https://images.unsplash.com/photo-1504257432389-52343af06ae3',
-        'https://images.unsplash.com/photo-1519340333755-c39e1cc57f2e',
-      ],
+  {
+    id: 1,
+    name: 'Laylo',
+    age: 23,
+    location: 'Toshkent',
+    isPremium: true,
+    photos: [
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+    ],
+    details: {
+      gender: 'Female',
+      height: "168cm (5'6\")",
+      languages: ['Uzbek', 'Russian'],
+      zodiac: 'Leo',
+      smoking: 'No',
+      drinking: 'Occasionally',
+      kids: 'No',
+      occupation: 'UI/UX Designer',
     },
-  
-    {
-      id: 2,
-      name: 'Gulbahor',
-      age: 27,
-      location: 'Andijon',
-      isPremium: false,
-      photos: [
-        'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-      ],
-      details: {
-        gender: 'Female',
-        height: "170cm (5'7\")",
-        languages: ['Uzbek'],
-        zodiac: 'Virgo',
-        smoking: 'No',
-        drinking: 'No',
-        kids: 'Yes',
-        occupation: 'Dentist',
-      },
-      tags: ['Cooking', 'Fitness', 'Cinema'],
-      moments: [
-        'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-      ],
+    tags: ['Music', 'Reading', 'Travel', 'Art'],
+    moments: [
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+      'https://images.unsplash.com/photo-1504257432389-52343af06ae3',
+      'https://images.unsplash.com/photo-1519340333755-c39e1cc57f2e',
+    ],
+  },
+  {
+    id: 2,
+    name: 'Gulbahor',
+    age: 27,
+    location: 'Andijon',
+    isPremium: false,
+    photos: [
+      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+    ],
+    details: {
+      gender: 'Female',
+      height: "170cm (5'7\")",
+      languages: ['Uzbek'],
+      zodiac: 'Virgo',
+      smoking: 'No',
+      drinking: 'No',
+      kids: 'Yes',
+      occupation: 'Dentist',
     },
-  
-    {
-      id: 3,
-      name: 'Malika',
-      age: 24,
-      location: 'Buxoro',
-      isPremium: true,
-      photos: [
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-      ],
-      details: {
-        gender: 'Female',
-        height: "160cm (5'3\")",
-        languages: ['Uzbek', 'English'],
-        zodiac: 'Sagittarius',
-        smoking: 'No',
-        drinking: 'No',
-        kids: 'No',
-        occupation: 'Photographer',
-      },
-      tags: ['Photography', 'Nature', 'Travel'],
-      moments: [
-        'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-      ],
+    tags: ['Cooking', 'Fitness', 'Cinema'],
+    moments: [
+      'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+    ],
+  },
+  {
+    id: 3,
+    name: 'Malika',
+    age: 24,
+    location: 'Buxoro',
+    isPremium: true,
+    photos: [
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+    ],
+    details: {
+      gender: 'Female',
+      height: "160cm (5'3\")",
+      languages: ['Uzbek', 'English'],
+      zodiac: 'Sagittarius',
+      smoking: 'No',
+      drinking: 'No',
+      kids: 'No',
+      occupation: 'Photographer',
     },
-  
-    {
-        id: 5,
-        name: 'Laylo',
-        age: 23,
-        location: 'Toshkent',
-        isPremium: true,
-        photos: [
-          'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-          'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-        ],
-        details: {
-          gender: 'Female',
-          height: "168cm (5'6\")",
-          languages: ['Uzbek', 'Russian'],
-          zodiac: 'Leo',
-          smoking: 'No',
-          drinking: 'Occasionally',
-          kids: 'No',
-          occupation: 'UI/UX Designer',
-        },
-        tags: ['Music', 'Reading', 'Travel', 'Art'],
-        moments: [
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-          'https://images.unsplash.com/photo-1504257432389-52343af06ae3',
-          'https://images.unsplash.com/photo-1519340333755-c39e1cc57f2e',
-        ],
-      },
-    
-      {
-        id: 7,
-        name: 'Gulbahor',
-        age: 27,
-        location: 'Andijon',
-        isPremium: false,
-        photos: [
-          'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-          'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-          'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-        ],
-        details: {
-          gender: 'Female',
-          height: "170cm (5'7\")",
-          languages: ['Uzbek'],
-          zodiac: 'Virgo',
-          smoking: 'No',
-          drinking: 'No',
-          kids: 'Yes',
-          occupation: 'Dentist',
-        },
-        tags: ['Cooking', 'Fitness', 'Cinema'],
-        moments: [
-          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-          'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-        ],
-      },
-    
-      {
-        id: 8,
-        name: 'Malika',
-        age: 24,
-        location: 'Buxoro',
-        isPremium: true,
-        photos: [
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-        ],
-        details: {
-          gender: 'Female',
-          height: "160cm (5'3\")",
-          languages: ['Uzbek', 'English'],
-          zodiac: 'Sagittarius',
-          smoking: 'No',
-          drinking: 'No',
-          kids: 'No',
-          occupation: 'Photographer',
-        },
-        tags: ['Photography', 'Nature', 'Travel'],
-        moments: [
-          'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-          'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-        ],
-      },
-  
-      
-    // ✂️ Siz xohlasangiz boshqa foydalanuvchilarni ham shunaqa davom ettiraman
-  ];
-  
-  export default UsersMockData;
-  
+    tags: ['Photography', 'Nature', 'Travel'],
+    moments: [
+      'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+    ],
+  },
+  {
+    id: 4,
+    name: 'Zilola',
+    age: 25,
+    location: 'Namangan',
+    isPremium: false,
+    photos: [
+      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+      'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+    ],
+    details: {
+      gender: 'Female',
+      height: "165cm (5'5\")",
+      languages: ['Uzbek', 'Russian'],
+      zodiac: 'Cancer',
+      smoking: 'No',
+      drinking: 'No',
+      kids: 'No',
+      occupation: 'Teacher',
+    },
+    tags: ['Cooking', 'Books', 'Yoga'],
+    moments: [
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+    ],
+  },
+];
+
+export default UsersMockData;

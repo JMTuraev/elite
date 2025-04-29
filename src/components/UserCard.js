@@ -1,5 +1,3 @@
-// src/components/UserCard.js
-
 import React, { useState, useRef } from 'react';
 import {
   View,
@@ -9,18 +7,31 @@ import {
   ImageBackground,
   Dimensions,
   Animated,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width / 2 - 18;
 const CARD_HEIGHT = 250;
-const MAX_DOTS = 5; // Maksimal dots soni
+const MAX_DOTS = 5;
 
-const UserCard = ({ name, age, location, photos, isPremium }) => {
+const UserCard = ({ id, name, age, location, photos, isPremium }) => {
+  const navigation = useNavigation();
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
+  const lastTap = useRef(null);
+
+  const handleDoubleTap = () => {
+    const now = Date.now();
+    if (lastTap.current && (now - lastTap.current) < 300) {
+      navigation.navigate('UserPublicProfile', { id: id }); // ✅ to‘g‘rilandi
+    } else {
+      lastTap.current = now;
+    }
+  };
 
   const handleMomentumScrollEnd = (event) => {
     const index = Math.round(event.nativeEvent.contentOffset.x / CARD_WIDTH);
@@ -31,80 +42,82 @@ const UserCard = ({ name, age, location, photos, isPremium }) => {
   const visibleDots = Math.min(totalPhotos, MAX_DOTS);
 
   return (
-    <View style={styles.card}>
-      {/* Swipeable Photos */}
-      <Animated.FlatList
-        data={photos}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        snapToInterval={CARD_WIDTH}
-        decelerationRate="fast"
-        bounces={false}
-        pagingEnabled={false}
-        contentContainerStyle={{ width: CARD_WIDTH * photos.length }}
-        keyExtractor={(item, index) => index.toString()}
-        onMomentumScrollEnd={handleMomentumScrollEnd}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-          { useNativeDriver: false }
-        )}
-        renderItem={({ item }) => (
-          <View style={styles.imageWrapper}>
-            <ImageBackground
-              source={{ uri: item }}
-              style={styles.image}
-              imageStyle={styles.imageStyle}
-            >
-              <View style={styles.overlay} />
-            </ImageBackground>
-          </View>
-        )}
-      />
-
-      {/* Static Info Layer */}
-      <View style={styles.absoluteInfo}>
-        {/* Top left: Name */}
-        <View style={styles.topLeft}>
-          <Text style={styles.name}>{name}, {age}</Text>
-        </View>
-
-        {/* Location */}
-        <View style={styles.locationBadge}>
-          <Entypo name="location-pin" size={14} color="#fff" />
-          <Text style={styles.locationText}>{location}</Text>
-        </View>
-
-        {/* Top right: photo count */}
-        <View style={styles.topRight}>
-          <Ionicons name="images-outline" size={16} color="#fff" />
-          <Text style={styles.photoCount}>{photos?.length || 0}</Text>
-        </View>
-
-        {/* Bottom left: Premium badge */}
-        {isPremium && (
-          <View style={styles.premiumBadge}>
-            <Ionicons name="star" size={16} color="#FFCC00" />
-          </View>
-        )}
-
-        {/* Bottom center: Dots */}
-        {photos.length > 1 && (
-          <View style={styles.dotsWrapper}>
-            <View style={styles.dotsContainer}>
-              {Array.from({ length: visibleDots }).map((_, index) => (
-                <View
-                  key={index}
-                  style={[
-                    styles.dot,
-                    index === activeIndex ? styles.activeDot : null,
-                  ]}
-                />
-              ))}
+    <TouchableWithoutFeedback onPress={handleDoubleTap}>
+      <View style={styles.card}>
+        {/* Swipeable Photos */}
+        <Animated.FlatList
+          data={photos}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={CARD_WIDTH}
+          decelerationRate="fast"
+          bounces={false}
+          pagingEnabled={false}
+          contentContainerStyle={{ width: CARD_WIDTH * photos.length }}
+          keyExtractor={(item, index) => index.toString()}
+          onMomentumScrollEnd={handleMomentumScrollEnd}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+            { useNativeDriver: false }
+          )}
+          renderItem={({ item }) => (
+            <View style={styles.imageWrapper}>
+              <ImageBackground
+                source={{ uri: item }}
+                style={styles.image}
+                imageStyle={styles.imageStyle}
+              >
+                <View style={styles.overlay} />
+              </ImageBackground>
             </View>
+          )}
+        />
+
+        {/* Static Info Layer */}
+        <View style={styles.absoluteInfo}>
+          {/* Top left: Name */}
+          <View style={styles.topLeft}>
+            <Text style={styles.name}>{name}, {age}</Text>
           </View>
-        )}
+
+          {/* Location */}
+          <View style={styles.locationBadge}>
+            <Entypo name="location-pin" size={14} color="#fff" />
+            <Text style={styles.locationText}>{location}</Text>
+          </View>
+
+          {/* Top right: photo count */}
+          <View style={styles.topRight}>
+            <Ionicons name="images-outline" size={16} color="#fff" />
+            <Text style={styles.photoCount}>{photos?.length || 0}</Text>
+          </View>
+
+          {/* Bottom left: Premium badge */}
+          {isPremium && (
+            <View style={styles.premiumBadge}>
+              <Ionicons name="star" size={16} color="#FFCC00" />
+            </View>
+          )}
+
+          {/* Bottom center: Dots */}
+          {photos.length > 1 && (
+            <View style={styles.dotsWrapper}>
+              <View style={styles.dotsContainer}>
+                {Array.from({ length: visibleDots }).map((_, index) => (
+                  <View
+                    key={index}
+                    style={[
+                      styles.dot,
+                      index === activeIndex ? styles.activeDot : null,
+                    ]}
+                  />
+                ))}
+              </View>
+            </View>
+          )}
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

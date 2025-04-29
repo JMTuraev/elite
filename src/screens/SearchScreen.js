@@ -1,9 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import UserCard from '../components/UserCard';
 import UsersMockData from '../../data/UsersMockData';
 
 export default function SearchScreen() {
+  const navigation = useNavigation();
+
+  const handlePress = (userId) => {
+    navigation.navigate('UserPublicProfile', { userId });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Search</Text>
@@ -14,11 +21,13 @@ export default function SearchScreen() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
           <UserCard
+            id={item.id}
             name={item.name}
             age={item.age}
             location={item.location}
             photos={item.photos}
             isPremium={item.isPremium}
+            onPress={() => handlePress(item.id)} // << qo‘shildi
           />
         )}
       />
