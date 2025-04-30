@@ -3,72 +3,7 @@ import { View, Animated, StyleSheet } from 'react-native';
 import ChatHeader from '../components/chat/ChatHeader';
 import ChatTabs from '../components/chat/ChatTabs'; 
 import ChatList from '../components/chat/ChatList'; 
-
-const mockChats = [
-  {
-    id: 1,
-    name: 'Laylo',
-    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-    lastMessage: 'Hi, how are you?',
-    time: '14:20',
-    unreadCount: 2,
-    isOnline: true,
-    isSender: true,
-    isRead: true,
-    direction: 'out',
-  },
-  {
-    id: 2,
-    name: 'Malika',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-    lastMessage: 'See you soon!',
-    time: '13:11',
-    unreadCount: 0,
-    isOnline: false,
-    isSender: true,
-    isRead: false,
-    direction: 'in',
-  },
-  {
-    id: 3,
-    name: 'Zilola',
-    avatar: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-    lastMessage: 'typing...',
-    time: '',
-    unreadCount: 0,
-    isOnline: true,
-    isSender: false,
-    isRead: false,
-    isTyping: true,
-    direction: 'in',
-  },
-  {
-    id: 4,
-    name: 'Guli',
-    avatar: 'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-    lastMessage: 'Let’s complete it soon!',
-    time: '12:30',
-    unreadCount: 0,
-    isOnline: true,
-    isSender: true,
-    isRead: true,
-    progressBadge: '6/10',
-    direction: 'out',
-  },
-  {
-    id: 5,
-    name: 'Dilnoza',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-    lastMessage: 'Thanks!',
-    time: '11:15',
-    unreadCount: 0,
-    isOnline: false,
-    isSender: true,
-    isRead: true,
-    progressBadge: '10/10',
-    direction: 'out',
-  },
-];
+import mockChats from '../../data/mockChats'; 
 
 export default function ChatScreen() {
   const [activeTab, setActiveTab] = useState('out');
