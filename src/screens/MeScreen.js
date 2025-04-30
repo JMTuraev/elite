@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function SearchScreen() {
+export default function MeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Search Screen</Text>
+      <Text style={styles.text}>profile</Text>
     </View>
   );
 }
