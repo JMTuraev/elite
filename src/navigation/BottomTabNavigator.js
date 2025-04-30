@@ -4,6 +4,7 @@ import SearchStackNavigator from '../navigation/SearchStackNavigator';
 import ChatStackNavigator from '../navigation/ChatStackNavigator';
 import ProfileScreen from '../screens/ProfileScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import ChatScreen from '../screens/ChatScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,7 +49,7 @@ export default function BottomTabNavigator() {
       })}
     >
       <Tab.Screen name="Search" component={SearchStackNavigator} />
-      <Tab.Screen name="Chat" component={ChatStackNavigator} />
+      <Tab.Screen name="Chat" component={ChatScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
