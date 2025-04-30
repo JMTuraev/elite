@@ -46,7 +46,7 @@ export default function DirectScreen() {
         user={user}
         onBackPress={() => navigation.goBack()}
         onAvatarPress={() =>
-          navigation.navigate('Profile', {
+          navigation.navigate('Search', {
             screen: 'UserPublicProfile',
             params: { userId: Number(userId) },
           })
