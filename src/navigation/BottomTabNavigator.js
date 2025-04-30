@@ -1,10 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import SearchStackNavigator from '../navigation/SearchStackNavigator';
-import ChatStackNavigator from '../navigation/ChatStackNavigator';
-import ProfileScreen from '../screens/ProfileScreen';
+import SearchStackNavigator from './SearchStackNavigator';
+import ChatStackNavigator from './ChatStackNavigator';
+import ProfileStackNavigator from './ProfileStackNavigator';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import ChatScreen from '../screens/ChatScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,37 +19,24 @@ export default function BottomTabNavigator() {
         },
         tabBarActiveTintColor: '#fff',
         tabBarInactiveTintColor: '#fff',
-        tabBarIcon: ({ focused, size }) => {
+        tabBarIcon: ({ focused, color, size }) => {
           let iconName;
 
-          switch (route.name) {
-            case 'Search':
-              iconName = focused ? 'search' : 'search-outline';
-              break;
-            case 'Chat':
-              iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
-              break;
-            case 'Profile':
-              iconName = focused ? 'person' : 'person-outline';
-              break;
-            default:
-              iconName = 'ellipse';
+          if (route.name === 'Search') {
+            iconName = focused ? 'search' : 'search-outline';
+          } else if (route.name === 'Chat') {
+            iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person' : 'person-outline';
           }
 
-          return (
-            <Ionicons
-              name={iconName}
-              size={size}
-              color="#fff"
-              style={{ opacity: focused ? 1 : 0.5 }}
-            />
-          );
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
     >
       <Tab.Screen name="Search" component={SearchStackNavigator} />
       <Tab.Screen name="Chat" component={ChatStackNavigator} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
+      <Tab.Screen name="Profile" component={ProfileStackNavigator} />
     </Tab.Navigator>
   );
 }

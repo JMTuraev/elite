@@ -1,21 +1,18 @@
-﻿import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomePage from '../pages/HomePage';
-import ProfilePage from '../pages/ProfilePage';
-import UserPublicProfile from '../screens/UserPublicProfile'; // ✅ ShU JOY MUHIM
-import ChatRoomScreen from '../screens/ChatRoomScreen';
-import ChatScreen from '../screens/ChatScreen';
+﻿// 📁 src/navigation/AppNavigator.js
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BottomTabNavigator from './BottomTabNavigator';
 
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}}>
-      <Stack.Screen name='Home' component={HomePage} options={{ headerShown: false }} />
-      <Stack.Screen name='Profile' component={ProfilePage} />
-      <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
-      <Stack.Screen name="Chat" component={ChatScreen} />
-      <Stack.Screen name='UserPublicProfile' component={UserPublicProfile}
-       options={{ headerShown: false }} />
-    </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Main" component={BottomTabNavigator} />
+        {/* Agar modal, auth yoki global ekranlar bo‘lsa, bu yerga qo‘shing */}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}  
+}
