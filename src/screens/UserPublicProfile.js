@@ -14,9 +14,9 @@ import UsersMockData from '../../data/UsersMockData';
 
 export default function UserPublicProfile() {
   const route = useRoute();
-  const { id } = route.params;
+  const { userId } = route.params;
 
-  const user = UsersMockData.find((u) => u.id === id);
+  const user = UsersMockData.find((u) => u.id === userId);
 
   if (!user) {
     return null; // yoki User Not Found sahifa chiqarsang ham bo‘ladi

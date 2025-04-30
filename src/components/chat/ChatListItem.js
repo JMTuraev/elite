@@ -15,7 +15,7 @@ export default function ChatListItem({ item }) {
     const navigation = useNavigation();
 
   const handleDoubleTap = () => {
-      navigation.navigate('ChatRoom', { userId: item.id.toString() }); // ✅ to‘g‘rilandi
+      navigation.navigate('DirectScreen', { userId: item.id.toString() }); // ✅ to‘g‘rilandi
    
   };
 

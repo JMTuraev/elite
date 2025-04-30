@@ -27,7 +27,7 @@ const UserCard = ({ id, name, age, location, photos, isPremium }) => {
   const handleDoubleTap = () => {
     const now = Date.now();
     if (lastTap.current && (now - lastTap.current) < 300) {
-      navigation.navigate('UserPublicProfile', { id: id }); // ✅ to‘g‘rilandi
+      navigation.navigate('UserPublicProfile', { userId: id }); // ✅ to‘g‘rilandi
     } else {
       lastTap.current = now;
     }

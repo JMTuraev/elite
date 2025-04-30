@@ -19,7 +19,7 @@ export default function ChatList({ data, fadeAnim, slideAnim }) {
         contentContainerStyle={styles.list}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item }) => <ChatListItem item={item} 
-        onPress={({ item }) => navigation.navigate('ChatRoom', { userId: item.id})}  />}
+        onPress={({ item }) => navigation.navigate('DirectScreen', { userId: item.id})}  />}
       
       />
     </Animated.View>

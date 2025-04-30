@@ -11,6 +11,7 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Main" component={BottomTabNavigator} />
+        
         {/* Agar modal, auth yoki global ekranlar bo‘lsa, bu yerga qo‘shing */}
       </Stack.Navigator>
     </NavigationContainer>

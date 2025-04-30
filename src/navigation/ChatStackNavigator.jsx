@@ -2,7 +2,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ChatScreen from '../screens/ChatScreen';
-import ChatRoomScreen from '../screens/ChatRoomScreen';
+import DirectScreen from '../screens/DirectScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +16,7 @@ export default function ChatStackNavigator() {
       }}
     >
       <Stack.Screen name="ChatScreen" component={ChatScreen} />
-      <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
+      <Stack.Screen name="DirectScreen" component={DirectScreen} />
     </Stack.Navigator>
   );
 }
