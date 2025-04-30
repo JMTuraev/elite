@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 
 import React, { useState, useRef } from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
@@ -101,6 +100,7 @@ export default function ChatScreen() {
         data={filteredChats}
         fadeAnim={fadeAnim}
         slideAnim={slideAnim}
+        
       />
     </View>
   );

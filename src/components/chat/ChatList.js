@@ -1,8 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Animated, FlatList, View, StyleSheet } from 'react-native';
 import ChatListItem from './ChatListItem';
 
 export default function ChatList({ data, fadeAnim, slideAnim }) {
+     const navigation = useNavigation();
   return (
     <Animated.View
       style={{
@@ -16,7 +18,9 @@ export default function ChatList({ data, fadeAnim, slideAnim }) {
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
-        renderItem={({ item }) => <ChatListItem item={item} />}
+        renderItem={({ item }) => <ChatListItem item={item} 
+        onPress={({ item }) => navigation.navigate('ChatRoom', { userId: item.id})}  />}
+      
       />
     </Animated.View>
   );

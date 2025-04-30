@@ -49,7 +49,7 @@ export default function BottomTabNavigator() {
       })}
     >
       <Tab.Screen name="Search" component={SearchStackNavigator} />
-      <Tab.Screen name="Chat" component={ChatScreen} />
+      <Tab.Screen name="Chat" component={ChatStackNavigator} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );

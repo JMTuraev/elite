@@ -1,18 +1,18 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SearchScreen from '../screens/SearchScreen';
-import UserPublicProfile from '../screens/UserPublicProfile';
+import ChatScreen from '../screens/ChatScreen';
+import ChatRoomScreen from '../screens/ChatRoomScreen';
 
 const Stack = createNativeStackNavigator();
 
-export default function SearchStackNavigator() {
+export default function ChatStackNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {/* SearchScreen: foydalanuvchi qidiruvi sahifasi */}
-      <Stack.Screen name="SearchScreen" component={SearchScreen} />
+     
+      <Stack.Screen name="ChatScreen" component={ChatScreen} />
 
-      {/* UserPublicProfile: dinamik profil sahifasi */}
-      <Stack.Screen name="UserPublicProfile" component={UserPublicProfile} />
+     
+      <Stack.Screen name="ChatRoom" component={ChatRoomScreen} />
     </Stack.Navigator>
   );
 }

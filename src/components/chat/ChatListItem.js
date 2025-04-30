@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+
 import React from 'react';
 import {
   View,
@@ -10,8 +12,15 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function ChatListItem({ item }) {
+    const navigation = useNavigation();
+
+  const handleDoubleTap = () => {
+      navigation.navigate('ChatRoom', { userId: item.id.toString() }); // ✅ to‘g‘rilandi
+   
+  };
+
   return (
-    <TouchableOpacity style={styles.chatItem}>
+    <TouchableOpacity style={styles.chatItem} onPress={handleDoubleTap} >
       <View style={styles.avatarWrapper}>
         <Image source={{ uri: item.avatar }} style={styles.avatar} />
         {item.isOnline && <View style={styles.onlineBadge} />}
