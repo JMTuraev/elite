@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+
 import React, { useState, useRef } from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
 import ChatHeader from '../components/chat/ChatHeader';
