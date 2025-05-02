@@ -2,13 +2,13 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useRoute } from '@react-navigation/native';
 
-import ProfileHeader from '../components/userProfile/ProfileHeader'; 
-import NameLocation from '../components/userProfile/NameLocation'; 
-import InstagramStats from '../components/common/InstagramStats';  
-import DetailsSection from '../components/userProfile/DetailsSection'; 
-import InterestsSection from '../components/userProfile/InterestsSection';
-import GiftsSection from '../components/userProfile/GiftsSection'; 
-import UserPhotos from '../components/userProfile/UserPhotos'; 
+import ProfileHeader from '../components/userProfile/ProfileHeader';
+import NameLocation from '../components/userProfile/NameLocation';
+import InstagramStats from '../components/common/InstagramStats';
+import Details from '../components/common/Details';
+import Interests from '../components/common/Interests';
+import Gifts from '../components/common/Gifts';
+import UserPhotos from '../components/userProfile/UserPhotos';
 
 import UsersMockData from '../../data/UsersMockData';
 
@@ -19,23 +19,19 @@ export default function UserPublicProfile() {
   const user = UsersMockData.find((u) => u.id === userId);
 
   if (!user) {
-    return null; // yoki User Not Found sahifa chiqarsang ham bo‘ladi
+    return null; // yoki "User Not Found" UI chiqarsang ham bo‘ladi
   }
 
-  // Event Handlers
   const handleChatPress = () => {
-    console.log('Chat tugmasi bosildi'); 
-    // Yoki navigate('ChatScreen', { userId: id })
+    console.log('Chat tugmasi bosildi');
   };
 
   const handleSendGift = () => {
     console.log('Send Gift tugmasi bosildi');
-    // Modal ochish yoki action dispatch
   };
 
   return (
     <ScrollView style={styles.container}>
-
       <ProfileHeader
         profilePhoto={user.profilePhoto}
         isPremium={user.isPremium}
@@ -54,23 +50,25 @@ export default function UserPublicProfile() {
         posts={user.posts}
       />
 
-      <DetailsSection
-        details={user.details}
+      <Details
+        data={user.details}
+        editable={false}
       />
 
-      <InterestsSection
-        tags={user.tags}
+      <Interests
+        interests={user.interests} // ✅ TO‘G‘RILANGAN
+        editable={false}
       />
 
-      <GiftsSection
+      <Gifts
         gifts={user.gifts}
-        onSendGift={handleSendGift}
+        editable={false}
       />
 
       <UserPhotos
         photos={user.photos}
+        max={user.isPremium ? 20 : 5}
       />
-
     </ScrollView>
   );
 }

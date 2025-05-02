@@ -1,17 +1,30 @@
-// 📁 src/components/common/Interests.js
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function Interests({ interests = [], editable = false, onPress }) {
+  const TitleBox = ({ editable }) => (
+    <LinearGradient
+      colors={['#FFD700', '#222']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.gradientBorder}
+    >
+      <View style={styles.innerBox}>
+        <Text style={editable ? styles.titleEditable : styles.title}>Interests</Text>
+      </View>
+    </LinearGradient>
+  );
+
   return (
     <View style={styles.card}>
       {editable ? (
         <TouchableOpacity onPress={onPress}>
-          <Text style={styles.titleEditable}>Interests</Text>
+          <TitleBox editable />
         </TouchableOpacity>
       ) : (
-        <Text style={styles.title}>Interests</Text>
+        <TitleBox />
       )}
 
       {interests.length > 0 ? (
@@ -43,17 +56,27 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 16,
   },
+  gradientBorder: {
+    borderRadius: 10,
+    padding: 1.5,
+    alignSelf: 'flex-start',
+    marginBottom: 10,
+  },
+  innerBox: {
+    backgroundColor: '#1a1a1d',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+  },
   title: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '700',
-    marginBottom: 10,
   },
   titleEditable: {
-    color: '#4dabf7',
+    color: '#fff',
     fontSize: 16,
     fontWeight: '700',
-    marginBottom: 10,
   },
   wrap: {
     flexDirection: 'row',

@@ -1,29 +1,31 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 
+import MeHeader from '../components/me/MeHeader';
 import ProfileInfo from '../components/me/ProfileInfo';
 import InstagramStats from '../components/common/InstagramStats';
 import Details from '../components/common/Details';
 import Interests from '../components/common/Interests';
-import Gifts from '../components/me/Gifts';
+import Gifts from '../components/common/Gifts';
 import Photos from '../components/me/Photos';
 import Visitors from '../components/me/Visitiors';
+
 import DetailsModal from '../components/me/DetailsModal';
 import InterestsModal from '../components/me/InterestsModal';
 
 import mockDetails from '../../data/mockDetails';
 import mockInterests from '../../data/mockInterests';
 import mockProfile from '../../data/mockProfile';
-import MeHeader from '../components/me/MeHeader';
+import mockGifts from '../../data/mockGifts';
 
 export default function MeScreen() {
   const [wallet] = useState(23);
-  const [visitorCount] = useState(7);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [showInterestsModal, setShowInterestsModal] = useState(false);
 
   const [userDetails, setUserDetails] = useState(mockDetails);
   const [interests, setInterests] = useState(mockInterests.slice(0, 3));
+  const [gifts, setGifts] = useState(mockGifts);
 
   const user = mockProfile;
 
@@ -40,16 +42,13 @@ export default function MeScreen() {
           onSettings={() => console.log('Open settings')}
         />
 
-        {/* Instagram + Visitors – one line */}
-          <View style={styles.instagramWrapper}>
-            <InstagramStats
-              followers={user.followers}
-              following={user.following}
-              posts={user.posts}
-              profileUrl={`https://instagram.com/${user.instagram}`}
-            />
-          </View>
-
+          <InstagramStats
+            followers={user.followers}
+            following={user.following}
+            posts={user.posts}
+            profileUrl={`https://instagram.com/${user.instagram}`}
+          />
+        
         <Details
           data={userDetails}
           editable={true}
@@ -63,7 +62,8 @@ export default function MeScreen() {
         />
 
         <Gifts
-          gifts={user.gifts}
+          gifts={gifts}
+          editable={true}
           onGiftPress={(gift) => console.log('Gift clicked:', gift)}
         />
 
@@ -116,19 +116,9 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
     paddingTop: 20,
   },
-  statsRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    paddingHorizontal: 24,
-    gap: 12,
-    marginBottom: 20,
-  },
   instagramWrapper: {
     flex: 1,
-  },
-  visitorWrapper: {
-    width: 72,
-    aspectRatio: 1,
+    marginBottom: 20,
+    paddingHorizontal: 24,
   },
 });

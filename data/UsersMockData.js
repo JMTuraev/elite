@@ -6,10 +6,7 @@ const UsersMockData = [
     location: 'Toshkent',
     isPremium: true,
     profilePhoto: 'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-    photos: [
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9',
-    ],
+    photos: ['https://images.unsplash.com/photo-1544005313-94ddf0286df2'],
     details: {
       gender: 'Female',
       height: "168cm (5'6\")",
@@ -20,64 +17,18 @@ const UsersMockData = [
       kids: 'No',
       occupation: 'UI/UX Designer',
     },
-    tags: ['Music', 'Reading', 'Travel', 'Art'],
-    moments: [
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-      'https://images.unsplash.com/photo-1504257432389-52343af06ae3',
-      'https://images.unsplash.com/photo-1519340333755-c39e1cc57f2e',
+    interests: [
+      { icon: 'music', label: 'Music' },
+      { icon: 'book-open', label: 'Reading' },
+      { icon: 'airplane', label: 'Travel' },
     ],
     followers: 12400,
     following: 580,
     posts: 132,
     gifts: [
-      {
-        id: 1,
-        title: 'Flowers',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      },
-      {
-        id: 2,
-        title: 'Diamond',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/2934/2934358.png',
-      },
-      {
-        id: 3,
-        title: 'Teddy Bear',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3649/3649496.png',
-      },
-      {
-        id: 4,
-        title: 'Chocolate',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3534/3534065.png',
-      },
-      {
-        id: 5,
-        title: 'Flowers',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      },
-      {
-        id: 6,
-        title: 'Diamond',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/2934/2934358.png',
-      },
-      {
-        id: 7,
-        title: 'Teddy Bear',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3649/3649496.png',
-      },
-      {
-        id: 8,
-        title: 'Chocolate',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3534/3534065.png',
-      },
-      {
-        id: 9,
-        title: 'Flowers',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      },
-     
-    ]
-    
+      { icon: '🎁', count: 2 },
+      { icon: '🌹', count: 3 },
+    ],
   },
   {
     id: 2,
@@ -86,9 +37,7 @@ const UsersMockData = [
     location: 'Andijon',
     isPremium: false,
     profilePhoto: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-    photos: [
-      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-    ],
+    photos: [],
     details: {
       gender: 'Female',
       height: "170cm (5'7\")",
@@ -99,36 +48,14 @@ const UsersMockData = [
       kids: 'Yes',
       occupation: 'Dentist',
     },
-    tags: ['Cooking', 'Fitness', 'Cinema'],
-    moments: [
-      'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
+    interests: [
+      { icon: 'chef-hat', label: 'Cooking' },
+      { icon: 'dumbbell', label: 'Fitness' },
     ],
     followers: 8700,
     following: 320,
     posts: 45,
-    gifts: [
-      {
-        id: 1,
-        title: 'Flowers',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      },
-      {
-        id: 2,
-        title: 'Diamond',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/2934/2934358.png',
-      },
-      {
-        id: 3,
-        title: 'Teddy Bear',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3649/3649496.png',
-      },
-      {
-        id: 4,
-        title: 'Chocolate',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3534/3534065.png',
-      },
-    ]
-    
+    gifts: [],
   },
   {
     id: 3,
@@ -150,37 +77,14 @@ const UsersMockData = [
       kids: 'No',
       occupation: 'Photographer',
     },
-    tags: ['Photography', 'Nature', 'Travel'],
-    moments: [
-      'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
-      'https://images.unsplash.com/photo-1517841905240-472988babdf9',
+    interests: [
+      { icon: 'camera', label: 'Photography' },
+      { icon: 'leaf', label: 'Nature' },
     ],
     followers: 15600,
     following: 610,
     posts: 89,
-    gifts: [
-      {
-        id: 1,
-        title: 'Flowers',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      },
-      {
-        id: 2,
-        title: 'Diamond',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/2934/2934358.png',
-      },
-      {
-        id: 3,
-        title: 'Teddy Bear',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3649/3649496.png',
-      },
-      {
-        id: 4,
-        title: 'Chocolate',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3534/3534065.png',
-      },
-    ]
-    
+    gifts: [{ icon: '💎', count: 1 }],
   },
   {
     id: 4,
@@ -189,10 +93,7 @@ const UsersMockData = [
     location: 'Namangan',
     isPremium: false,
     profilePhoto: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-    photos: [
-      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
-      'https://images.unsplash.com/photo-1487412912498-0447578fcca8',
-    ],
+    photos: [],
     details: {
       gender: 'Female',
       height: "165cm (5'5\")",
@@ -203,36 +104,176 @@ const UsersMockData = [
       kids: 'No',
       occupation: 'Teacher',
     },
-    tags: ['Cooking', 'Books', 'Yoga'],
-    moments: [
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+    interests: [
+      { icon: 'book', label: 'Books' },
+      { icon: 'yoga', label: 'Yoga' },
     ],
     followers: 9600,
     following: 440,
     posts: 57,
-    gifts: [
-      {
-        id: 1,
-        title: 'Flowers',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      },
-      {
-        id: 2,
-        title: 'Diamond',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/2934/2934358.png',
-      },
-      {
-        id: 3,
-        title: 'Teddy Bear',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3649/3649496.png',
-      },
-      {
-        id: 4,
-        title: 'Chocolate',
-        iconUrl: 'https://cdn-icons-png.flaticon.com/512/3534/3534065.png',
-      },
-    ]
-    
+    gifts: [{ icon: '🎁', count: 2 }],
+  },
+  {
+    id: 5,
+    name: 'Sabrina',
+    age: 22,
+    location: 'Samarqand',
+    isPremium: true,
+    profilePhoto: 'https://images.unsplash.com/photo-1552058544-f2b08422138a',
+    photos: [],
+    details: {
+      gender: 'Female',
+      height: "162cm (5'4\")",
+      languages: ['English'],
+      zodiac: 'Libra',
+      smoking: 'No',
+      drinking: 'Yes',
+      kids: 'No',
+      occupation: 'Model',
+    },
+    interests: [
+      { icon: 'star', label: 'Dancing' },
+      { icon: 'movie-open', label: 'Movies' },
+    ],
+    followers: 10800,
+    following: 312,
+    posts: 64,
+    gifts: [],
+  },
+  {
+    id: 6,
+    name: 'Dilrabo',
+    age: 26,
+    location: 'Qo‘qon',
+    isPremium: false,
+    profilePhoto: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+    photos: [],
+    details: {
+      gender: 'Female',
+      height: "169cm (5'6\")",
+      languages: ['Uzbek', 'Turkish'],
+      zodiac: 'Scorpio',
+      smoking: 'No',
+      drinking: 'Occasionally',
+      kids: 'Yes',
+      occupation: 'Makeup Artist',
+    },
+    interests: [
+      { icon: 'lipstick', label: 'Beauty' },
+      { icon: 'tshirt-crew', label: 'Fashion' },
+    ],
+    followers: 22000,
+    following: 950,
+    posts: 200,
+    gifts: [{ icon: '🍫', count: 4 }],
+  },
+  {
+    id: 7,
+    name: 'Nodira',
+    age: 28,
+    location: 'Xorazm',
+    isPremium: true,
+    profilePhoto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
+    photos: [],
+    details: {
+      gender: 'Female',
+      height: "167cm (5'5\")",
+      languages: ['Uzbek', 'English'],
+      zodiac: 'Aries',
+      smoking: 'No',
+      drinking: 'No',
+      kids: 'No',
+      occupation: 'Engineer',
+    },
+    interests: [
+      { icon: 'laptop', label: 'Technology' },
+      { icon: 'gamepad', label: 'Gaming' },
+    ],
+    followers: 12900,
+    following: 470,
+    posts: 33,
+    gifts: [],
+  },
+  {
+    id: 8,
+    name: 'Zamira',
+    age: 25,
+    location: 'Farg‘ona',
+    isPremium: false,
+    profilePhoto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+    photos: [],
+    details: {
+      gender: 'Female',
+      height: "161cm (5'3\")",
+      languages: ['Uzbek'],
+      zodiac: 'Taurus',
+      smoking: 'No',
+      drinking: 'No',
+      kids: 'Yes',
+      occupation: 'Doctor',
+    },
+    interests: [
+      { icon: 'heart-pulse', label: 'Health' },
+      { icon: 'walk', label: 'Walking' },
+    ],
+    followers: 6000,
+    following: 200,
+    posts: 17,
+    gifts: [{ icon: '🌹', count: 1 }],
+  },
+  {
+    id: 9,
+    name: 'Zuxra',
+    age: 29,
+    location: 'Jizzax',
+    isPremium: true,
+    profilePhoto: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2',
+    photos: [],
+    details: {
+      gender: 'Female',
+      height: "172cm (5'8\")",
+      languages: ['Russian'],
+      zodiac: 'Pisces',
+      smoking: 'No',
+      drinking: 'Rarely',
+      kids: 'No',
+      occupation: 'Singer',
+    },
+    interests: [
+      { icon: 'microphone', label: 'Singing' },
+      { icon: 'music-circle', label: 'Stage' },
+    ],
+    followers: 31000,
+    following: 1100,
+    posts: 150,
+    gifts: [],
+  },
+  {
+    id: 10,
+    name: 'Gulnoza',
+    age: 21,
+    location: 'Toshkent',
+    isPremium: false,
+    profilePhoto: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e',
+    photos: [],
+    details: {
+      gender: 'Female',
+      height: "158cm (5'2\")",
+      languages: ['Uzbek'],
+      zodiac: 'Gemini',
+      smoking: 'No',
+      drinking: 'No',
+      kids: 'No',
+      occupation: 'Student',
+    },
+    interests: [
+      { icon: 'pen', label: 'Drawing' },
+      { icon: 'emoticon', label: 'Anime' },
+    ],
+    followers: 4300,
+    following: 130,
+    posts: 11,
+    gifts: [{ icon: '🎁', count: 1 }],
   },
 ];
 
