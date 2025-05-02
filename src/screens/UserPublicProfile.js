@@ -4,7 +4,7 @@ import { useRoute } from '@react-navigation/native';
 
 import ProfileHeader from '../components/userProfile/ProfileHeader'; 
 import NameLocation from '../components/userProfile/NameLocation'; 
-import InstagramStats from '../components/userProfile/InstagramStats'; 
+import InstagramStats from '../components/common/InstagramStats';  
 import DetailsSection from '../components/userProfile/DetailsSection'; 
 import InterestsSection from '../components/userProfile/InterestsSection';
 import GiftsSection from '../components/userProfile/GiftsSection'; 

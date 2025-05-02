@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 
-import TopBar from '../components/me/TopBar'; 
-import ProfileInfo from '../components/me/ProfileInfo'; 
-import InstaInfo from '../components/me/InstaInfo'; 
-import Details from '../components/common/Details'; 
-import Interests from '../components/common/Interests'; 
-import Gifts from '../components/me/Gifts'; 
-import Photos from '../components/me/Photos'; 
-import Visitors from '../components/me/Visitiors'; 
-import DetailsModal from '../components/me/DetailsModal'; 
+import ProfileInfo from '../components/me/ProfileInfo';
+import InstagramStats from '../components/common/InstagramStats';
+import Details from '../components/common/Details';
+import Interests from '../components/common/Interests';
+import Gifts from '../components/me/Gifts';
+import Photos from '../components/me/Photos';
+import Visitors from '../components/me/Visitiors';
+import DetailsModal from '../components/me/DetailsModal';
 import InterestsModal from '../components/me/InterestsModal';
+
 import mockDetails from '../../data/mockDetails';
 import mockInterests from '../../data/mockInterests';
+import mockProfile from '../../data/mockprofile';
+import MeHeader from '../components/me/MeHeader';
 
 export default function MeScreen() {
   const [wallet] = useState(23);
@@ -23,45 +25,30 @@ export default function MeScreen() {
   const [userDetails, setUserDetails] = useState(mockDetails);
   const [interests, setInterests] = useState(mockInterests.slice(0, 3));
 
-  const user = {
-    name: 'Laylo',
-    age: 25,
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330',
-    instagram: 'laylo_insta',
-    posts: 54,
-    followers: 1161,
-    following: 22,
-    gifts: [
-      { icon: '🎁', count: 3 },
-      { icon: '💐', count: 1 },
-    ],
-    photos: [{}, {}, {}, {}, {}, {}, {}],
-  };
+  const user = mockProfile;
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
-        <TopBar wallet={wallet} onLogout={() => console.log('Logout')} />
+      <MeHeader />
 
+      <ScrollView contentContainerStyle={styles.scrollContent}>
         <ProfileInfo
           avatar={user.avatar}
           name={user.name}
           age={user.age}
-          onEdit={() => console.log('Edit profile')}
+          wallet={wallet}
+          onSettings={() => console.log('Open settings')}
         />
 
-        <View style={styles.inlineWrapper}>
-          <InstaInfo
-            username={user.instagram}
-            posts={user.posts}
-            followers={user.followers}
-            following={user.following}
-          />
-          <Visitors
-            count={visitorCount}
-            onPress={() => console.log('Open visitors modal')}
-          />
-        </View>
+        {/* Instagram + Visitors – one line */}
+          <View style={styles.instagramWrapper}>
+            <InstagramStats
+              followers={user.followers}
+              following={user.following}
+              posts={user.posts}
+              profileUrl={`https://instagram.com/${user.instagram}`}
+            />
+          </View>
 
         <Details
           data={userDetails}
@@ -129,11 +116,19 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
     paddingTop: 20,
   },
-  inlineWrapper: {
+  statsRow: {
     flexDirection: 'row',
-    alignItems: 'stretch',
+    alignItems: 'flex-start',
     justifyContent: 'space-between',
     paddingHorizontal: 24,
     gap: 12,
+    marginBottom: 20,
+  },
+  instagramWrapper: {
+    flex: 1,
+  },
+  visitorWrapper: {
+    width: 72,
+    aspectRatio: 1,
   },
 });
