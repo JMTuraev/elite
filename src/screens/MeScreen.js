@@ -13,7 +13,7 @@ import InterestsModal from '../components/me/InterestsModal';
 
 import mockDetails from '../../data/mockDetails';
 import mockInterests from '../../data/mockInterests';
-import mockProfile from '../../data/mockprofile';
+import mockProfile from '../../data/mockProfile';
 import MeHeader from '../components/me/MeHeader';
 
 export default function MeScreen() {

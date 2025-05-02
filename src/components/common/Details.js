@@ -26,7 +26,7 @@ export default function Details({ data = mockDetails, onPress, editable = false 
       )}
 
       <View style={styles.wrap}>
-        {fields.map(
+        {fields?.map(
           (item, index) =>
             item.label && (
               <View key={index} style={styles.item}>
