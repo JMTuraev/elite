@@ -3,8 +3,9 @@ import React from 'react';
 import { Animated, FlatList, View, StyleSheet } from 'react-native';
 import ChatListItem from './ChatListItem';
 
-export default function ChatList({ data, fadeAnim, slideAnim }) {
-     const navigation = useNavigation();
+export default function ChatList({ data, fadeAnim, slideAnim, activeTab }) {
+  const navigation = useNavigation();
+
   return (
     <Animated.View
       style={{
@@ -18,9 +19,17 @@ export default function ChatList({ data, fadeAnim, slideAnim }) {
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.list}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
-        renderItem={({ item }) => <ChatListItem item={item} 
-        onPress={({ item }) => navigation.navigate('DirectScreen', { userId: item.id})}  />}
-      
+        renderItem={({ item }) => (
+          <ChatListItem
+            item={item}
+            onPress={() =>
+              navigation.navigate('DirectScreen', {
+                userId: item.id,
+                sourceTab: activeTab, // 👈 uzatilmoqda
+              })
+            }
+          />
+        )}
       />
     </Animated.View>
   );

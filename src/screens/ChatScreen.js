@@ -1,13 +1,14 @@
-
 import React, { useState, useRef } from 'react';
 import { View, Animated, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ChatHeader from '../components/chat/ChatHeader';
-import ChatTabs from '../components/chat/ChatTabs'; 
-import ChatList from '../components/chat/ChatList'; 
-import mockChats from '../../data/mockChats'; 
+import ChatTabs from '../components/chat/ChatTabs';
+import ChatList from '../components/chat/ChatList';
+import mockChats from '../../data/mockChats';
 
 export default function ChatScreen() {
-  const [activeTab, setActiveTab] = useState('out');
+  const navigation = useNavigation();
+  const [activeTab, setActiveTab] = useState('out'); // 'out' = started by you, 'in' = requested you
   const [tabLayouts, setTabLayouts] = useState({});
   const translateX = useRef(new Animated.Value(0)).current;
   const underlineWidth = useRef(new Animated.Value(0)).current;
@@ -100,7 +101,7 @@ export default function ChatScreen() {
         data={filteredChats}
         fadeAnim={fadeAnim}
         slideAnim={slideAnim}
-        
+        activeTab={activeTab} // 👈 VERY IMPORTANT
       />
     </View>
   );

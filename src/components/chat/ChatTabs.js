@@ -29,6 +29,7 @@ export default function ChatTabs({
           </Text>
         </TouchableOpacity>
       ))}
+
       <Animated.View
         style={[
           styles.underline,
@@ -61,11 +62,12 @@ const styles = StyleSheet.create({
   },
   activeTabText: {
     color: '#00e676',
+    fontWeight: 'bold',
   },
   underline: {
     position: 'absolute',
     bottom: 0,
-    height: 1,
+    height: 2,
     backgroundColor: '#00e676',
     borderRadius: 10,
   },

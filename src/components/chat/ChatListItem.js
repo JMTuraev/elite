@@ -1,179 +1,107 @@
-import { useNavigation } from '@react-navigation/native';
-
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function ChatListItem({ item }) {
-    const navigation = useNavigation();
-
-  const handleDoubleTap = () => {
-      navigation.navigate('DirectScreen', { userId: item.id.toString() }); // ✅ to‘g‘rilandi
-   
-  };
-
+export default function ChatListItem({ item, onPress }) {
   return (
-    <TouchableOpacity style={styles.chatItem} onPress={handleDoubleTap} >
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <View style={styles.avatarWrapper}>
         <Image source={{ uri: item.avatar }} style={styles.avatar} />
-        {item.isOnline && <View style={styles.onlineBadge} />}
+        {item.isOnline && <View style={styles.onlineDot} />}
       </View>
 
-      <View style={styles.content}>
-        <View style={styles.row}>
-          <View style={styles.nameWithProgress}>
-            <Text style={styles.name}>{item.name}</Text>
-            {item.progressBadge === '10/10' ? (
-              <Ionicons name="lock-closed-outline" size={16} color="#ff4d4d" />
-            ) : item.progressBadge ? (
-              <View style={styles.progressInlineBadge}>
-                <Text style={styles.progressInlineText}>{item.progressBadge}</Text>
-              </View>
-            ) : null}
-          </View>
-
-          <View style={styles.metaRight}>
-            {item.isSender && (
-              <View style={styles.checkWrapper}>
-                {item.isRead ? (
-                  <>
-                    <MaterialIcons name="done" size={15} color="#00e676" style={styles.check1} />
-                    <MaterialIcons name="done" size={15} color="#00e676" style={styles.check2} />
-                  </>
-                ) : (
-                  <MaterialIcons name="done" size={15} color="#00e676" />
-                )}
-              </View>
-            )}
-            <Text style={styles.time}>{item.time}</Text>
-          </View>
-        </View>
-
-        <View style={styles.row}>
-          <Text
-            style={[styles.lastMessage, item.isTyping && styles.typingText]}
-            numberOfLines={1}
-          >
-            {item.lastMessage}
-          </Text>
-
-          {item.unreadCount > 0 && (
-            <View style={styles.unreadBadge}>
-              <Text style={styles.unreadText}>{item.unreadCount}</Text>
-            </View>
+      <View style={styles.info}>
+        <View style={styles.nameRow}>
+          <Text style={styles.name}>{item.name}, {item.age}</Text>
+          {item.progressBadge && (
+            <Text style={styles.progressBadge}>{item.progressBadge}</Text>
           )}
         </View>
+
+        <Text style={styles.lastMessage} numberOfLines={1}>
+          {item.isTyping ? 'typing...' : item.lastMessage || 'No messages yet'}
+        </Text>
+      </View>
+
+      <View style={styles.rightSide}>
+        {item.time ? <Text style={styles.time}>{item.time}</Text> : null}
+        {item.unreadCount > 0 && (
+          <View style={styles.unreadBadge}>
+            <Text style={styles.unreadText}>{item.unreadCount}</Text>
+          </View>
+        )}
       </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  chatItem: {
+  container: {
     flexDirection: 'row',
-    paddingHorizontal: 16,
     paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: 'center',
   },
   avatarWrapper: {
     position: 'relative',
     marginRight: 12,
   },
   avatar: {
-    width: 54,
-    height: 54,
-    borderRadius: 27,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
   },
-  onlineBadge: {
+  onlineDot: {
     position: 'absolute',
     bottom: 0,
-    right: 2,
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    right: 0,
+    width: 10,
+    height: 10,
     backgroundColor: '#00e676',
+    borderRadius: 5,
     borderWidth: 2,
     borderColor: '#000',
   },
-  content: {
+  info: {
     flex: 1,
-    justifyContent: 'center',
   },
-  row: {
+  nameRow: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  nameWithProgress: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
   },
   name: {
     color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  progressInlineBadge: {
-    borderWidth: 1,
-    borderColor: '#888',
-    borderRadius: 12,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-  },
-  progressInlineText: {
-    color: '#888',
-    fontSize: 12,
+    fontSize: 15,
     fontWeight: '600',
   },
-  metaRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-  time: {
-    color: '#888',
+  progressBadge: {
     fontSize: 12,
-  },
-  checkWrapper: {
-    position: 'relative',
-    width: 20,
-    height: 14,
-    marginRight: 4,
-  },
-  check1: {
-    position: 'absolute',
-    left: 2,
-    top: 0,
-  },
-  check2: {
-    position: 'absolute',
-    left: 6,
-    top: 0,
+    color: '#FFD700',
+    backgroundColor: '#333',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 6,
+    overflow: 'hidden',
+    marginLeft: 8,
   },
   lastMessage: {
-    color: '#999',
+    color: '#aaa',
     fontSize: 13,
-    marginTop: 4,
-    flex: 1,
+    marginTop: 2,
   },
-  typingText: {
-    color: '#00e676',
-    fontStyle: 'italic',
-    fontWeight: '500',
+  rightSide: {
+    alignItems: 'flex-end',
+  },
+  time: {
+    color: '#666',
+    fontSize: 12,
   },
   unreadBadge: {
-    backgroundColor: '#229ED9',
+    marginTop: 4,
+    backgroundColor: '#f44336',
     borderRadius: 12,
-    paddingHorizontal: 8,
+    paddingHorizontal: 6,
     paddingVertical: 2,
-    marginLeft: 6,
   },
   unreadText: {
     color: '#fff',
