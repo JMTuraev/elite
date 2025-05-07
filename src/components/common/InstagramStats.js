@@ -10,10 +10,8 @@ export default function InstagramStats({ followers, following, posts, profileUrl
   };
 
   return (
-    <LinearGradient
-      colors={['#1c1c1e', '#121212']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+    
+    <View
       style={styles.container}
     >
       <Ionicons name="logo-instagram" size={48} color="#aaa" style={styles.logo} />
@@ -29,7 +27,7 @@ export default function InstagramStats({ followers, following, posts, profileUrl
           <Text style={styles.link}>View Instagram Profile</Text>
         </TouchableOpacity>
       </View>
-    </LinearGradient>
+    </View>
   );
 }
 
@@ -42,6 +40,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#0b0b0c', 
+    
+    
   },
   logo: {
     marginRight: 16,
@@ -49,6 +50,8 @@ const styles = StyleSheet.create({
   infoBlock: {
     flex: 1,
     justifyContent: 'center',
+    
+    
   },
   text: {
     color: '#ccc',

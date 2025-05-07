@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import UserCard from '../components/UserCard';
 import UsersMockData from '../../data/UsersMockData';
+import SearchHeader from '../components/search/SearchHeader';
 
 export default function SearchScreen() {
   const navigation = useNavigation();
@@ -13,7 +14,7 @@ export default function SearchScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search</Text>
+      <SearchHeader />
       <FlatList
         data={UsersMockData}
         numColumns={2}
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#000',
-    paddingTop: 20,
+
   },
   title: {
     color: '#fff',

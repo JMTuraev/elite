@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function ChatHeader() {
+export default function SearchHeader() {
   const [showLevelModal, setShowLevelModal] = useState(false);
 
   return (
     <>
       <View style={styles.headerWrapper}>
-        <Text style={styles.header}>Profile</Text>
+        <Text style={styles.header}>Search</Text>
 
       </View>
     </>

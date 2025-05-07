@@ -50,7 +50,7 @@ export default function Interests({ interests = [], editable = false, onPress })
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#1a1a1d',
+    backgroundColor: '#0b0b0c',
     marginHorizontal: 24,
     marginVertical: 14,
     borderRadius: 14,

@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import LevelModal from './LevelModal';
+import LevelPage from './LevelPage'; // ✅ LevelPage import qilingan
 
 export default function ChatHeader() {
   const [showLevelModal, setShowLevelModal] = useState(false);
 
   return (
-    <View style={styles.headerWrapper}>
-      <Text style={styles.header}>Chats</Text>
+    <>
+      <View style={styles.headerWrapper}>
+        <Text style={styles.header}>Chats</Text>
 
-      <TouchableOpacity style={styles.levelBadge} onPress={() => setShowLevelModal(true)}>
-        <Ionicons name="shield-half-outline" size={16} color="#FFD700" />
-        <Text style={styles.levelText}>Level 12</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.levelBadge}
+          onPress={() => setShowLevelModal(true)}
+        >
+          <Ionicons name="shield-half-outline" size={16} color="#FFD700" />
+          <Text style={styles.levelText}>Level 12</Text>
+        </TouchableOpacity>
+      </View>
 
-      <LevelModal visible={showLevelModal} onClose={() => setShowLevelModal(false)} />
-    </View>
+      {/* ✅ LevelPage modalni ko‘rsatish */}
+      <LevelPage visible={showLevelModal} onClose={() => setShowLevelModal(false)} />
+    </>
   );
 }
 

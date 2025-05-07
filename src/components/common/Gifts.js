@@ -39,7 +39,7 @@ export default function Gifts({ gifts = [], onGiftPress, editable = false }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#1a1a1d',
+    backgroundColor: '#0b0b0c',
     marginHorizontal: 24,
     marginVertical: 14,
     borderRadius: 14,
